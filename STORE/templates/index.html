@@ -1,0 +1,39 @@
+{% extends 'Base/mainbase.html' %}
+
+{% block content %}
+
+  <div class="container mt-3">
+    <div class="row">
+
+      <!-- Category -->
+      <div id="category" class="col-lg-2 mx-auto">
+        <a href="/" class="list-group-item list-group-item-action">All Products</a>
+        {% for category in categories %}
+        <div class="list-group">
+          <a href="/?category={{category.id}}" class="list-group-item list-group-item-action">{{category.name}}</a>
+<!--          <a href="#" class="list-group-item list-group-item-action active">{{category.name}}</a>-->
+        </div>
+        {% endfor %}
+      </div>
+      <!-- Product -->
+      <div  id="product" class="col-lg-10 mx-auto">
+        <div class="row mx-auto">
+          {% for product in products %}
+          <div class="card" style="width: 18rem; ma-2">
+            <img src="{{product.image.url}}" class="card-img-top" alt="eshop_image">
+            <div class="card-body">
+              <h5 class="card-title">{{product.name}}</h5>
+              <p class="card-text">{{product.description}}</p>
+                <p class="card-text"><b>{{product.price}}</b></p>
+              <a href="#" class="btn btn-light boarder btn-sm">Add To Card</a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}
+
